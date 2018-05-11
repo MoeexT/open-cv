@@ -11,7 +11,7 @@
 
 ### cameo.py
 
-*Cameo()* 类提供两种方法启动应用程序：run()和onkeypress()。初始化时，*Cameo()* 类会把onkeypress()作为回调函数创建 *WindowManager()* 类，而 *CaptureManager()* 类会使用摄像头和 *WindowManager()* 类。当调用run()函数时，在主循环里处理帧和事件，事件的处理通过调用onkeypress()函数完成。
+*Cameo()* 类提供两种方法启动应用程序：`run()`和`onkeypress()`。初始化时，*Cameo()* 类会把`onkeypress()`作为回调函数创建 *WindowManager()* 类，而 *CaptureManager()* 类会使用摄像头和 *WindowManager()* 类。当调用`run()`函数时，在主循环里处理帧和事件，事件的处理通过调用`onkeypress()`函数完成。
 
 + 空格：截图保存到当前目录
 + tab：开始/停止录像
