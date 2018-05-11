@@ -2,14 +2,17 @@
 # -*- coding: utf-8 -*-
 
 import cv2
+import filters
 from managers import CaptureManager, WindowManager
 
 
 class Cameo(object):
-
     def __init__(self):
         self._window_manager = WindowManager('Cameo', self.on_keypress)
         self._capture_manager = CaptureManager(cv2.VideoCapture(0), self._window_manager, True)
+        # self._curve_filter = filters.BGRPortraCurveFilter()
+        # @这是滤波器
+        self._curve_filter = filters.EmbossFilter()
 
     def run(self):
         """main loop"""
@@ -18,7 +21,10 @@ class Cameo(object):
             self._capture_manager.enter_frame()
             frame = self._capture_manager.frame
 
-            # TUDO: filter the frame (chapter 3)
+            # TUDO(yuwan) filter the frame (chapter 3)
+            # @这是滤波器方法
+            filters.stroke_edges(frame, frame)
+            self._curve_filter.apply(frame, frame)
 
             self._capture_manager.exit_frame()
             self._window_manager.process_events()

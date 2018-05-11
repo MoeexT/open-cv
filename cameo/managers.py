@@ -7,7 +7,6 @@ import time
 
 
 class CaptureManager(object):
-
     def __init__(self, capture, preview_window_manager=None, should_mirror_preview=False):
         self.preview_window_manager = preview_window_manager
         self.should_mirror_preview = should_mirror_preview
