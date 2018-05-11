@@ -8,12 +8,12 @@
 
 #### managers 高级I/O流接口
 
-+ **CaptureManager()**类读取帧，并将其分配到一个或多个输出中，这些输出包括图像、视频、以及窗口（通过WindowManager实现）。
-+ **WindowManager()**使代码以面向对象的形式处理窗口和事件。
++ **CaptureManager()** 类读取帧，并将其分配到一个或多个输出中，这些输出包括图像、视频、以及窗口（通过WindowManager实现）。
++ **WindowManager()** 使代码以面向对象的形式处理窗口和事件。
 
 #### cameo
 
-Cameo类提供两种方法启动应用程序：run()和onkeypress()。初始化时，Cameo类会把onkeypress()作为回调函数创建WindowManager()类，而CaptureManager()类会使用摄像头和WindowManager()类。当调用run()函数时，在主循环里处理帧和事件，事件的处理通过调用onkeypress()函数完成。
+*Cameo()* 类提供两种方法启动应用程序：run()和onkeypress()。初始化时，*Cameo()* 类会把onkeypress()作为回调函数创建 *WindowManager()* 类，而 *CaptureManager()* 类会使用摄像头和 *WindowManager()* 类。当调用run()函数时，在主循环里处理帧和事件，事件的处理通过调用onkeypress()函数完成。
 
 + 空格：截图保存到当前目录
 + tab：开始/停止录像
