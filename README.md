@@ -21,21 +21,26 @@
 
 通过不同的滤波处理该帧，从而在窗口看到不同的效果。
 
-![锐化滤波](/cameo/SharpenFilter.png)
+![锐化滤波](cameo/filtered_images/SharpenFilter(1).png)
 
 SharpenFilter 锐化滤波
 
-![边缘检测滤波](/cameo/FindEdgesFilter.png)
+![边缘检测滤波](cameo/filtered_images/FindEdgesFilter(1).png)
 
 FindEdgesFilter 边缘检测滤波
 
-![模糊滤波](/cameo/BlurFilter.png)
+![模糊滤波](cameo/filtered_images/BlurFilter(1).png)
 
 BlurFilter 模糊滤波
 
-![浮雕滤波](/cameo/EmbossFilter.png)
+![浮雕滤波](cameo/filtered_images/EmbossFilter(1).png)
 
 EmbossFilter 浮雕滤波
+
+#### 改动 *kernel* 的其他滤波
+![FindEdgesFilter4](cameo/filtered_images/FindEdgesFilter4.png)
+![SharpenFilter5](cameo/filtered_images/SharpenFilter5.png)
+
 
 ### util.py
 一些通用的数学函数，大多在 `filters.py` 中用到
