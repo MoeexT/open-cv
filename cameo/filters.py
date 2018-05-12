@@ -39,6 +39,10 @@ class VConvolutionFilter(object):
         """
         cv2.filter2D(src, -1, self._kernel, dst)
 
+    @property
+    def kernel(self):
+        return self._kernel
+
 
 class SharpenFilter(VConvolutionFilter):
     """a sharpen filter with a 1-pixel radius"""
@@ -47,6 +51,18 @@ class SharpenFilter(VConvolutionFilter):
         kernel = numpy.array([[-1, -1, -1],
                               [-1, 9, -1],
                               [-1, -1, -1]])
+        VConvolutionFilter.__init__(self, kernel)
+
+
+class SharpenFilter5(VConvolutionFilter):
+    """a sharpen filter with a 1-pixel radius"""
+
+    def __init__(self):
+        kernel = numpy.array([[-1, -1, -1, -1, -1],
+                              [-1, 1, 2, 1, -1],
+                              [-1, 2, 4, 2, -1],
+                              [-1, 1, 2, 1, -1],
+                              [-1, -1, -1, -1, -1]])
         VConvolutionFilter.__init__(self, kernel)
 
 
@@ -60,6 +76,17 @@ class FindEdgesFilter(VConvolutionFilter):
                               [-1, 9, -1],
                               [-1, -1, -1]])
         VConvolutionFilter.__init__(self, kernel)
+
+
+class FindEdgesFilter4(VConvolutionFilter):
+    """a sharpen filter with a 1-pixel radius"""
+
+    def __init__(self):
+        self.kernel = numpy.array([[-1, 1, -1, 1],
+                                   [1, -1, 1, -1],
+                                   [-1, 1, -1, 1],
+                                   [1, -1, 1, -1]])
+        VConvolutionFilter.__init__(self, self.kernel)
 
 
 class BlurFilter(VConvolutionFilter):
@@ -133,3 +160,7 @@ class BGRPortraCurveFilter(BGRCurveFilter):
                                 r_points=[(0, 0), (69, 69), (213, 218), (255, 255)],
                                 d_type=d_type)
 
+
+if __name__ == "__main__":
+    a = EmbossFilter()
+    print(a.kernel)

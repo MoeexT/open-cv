@@ -10,9 +10,9 @@ class Cameo(object):
     def __init__(self):
         self._window_manager = WindowManager('Cameo', self.on_keypress)
         self._capture_manager = CaptureManager(cv2.VideoCapture(0), self._window_manager, True)
-        # self._curve_filter = filters.BGRPortraCurveFilter()
+
         # @这是滤波器
-        self._curve_filter = filters.EmbossFilter()
+        # self._curve_filter = filters.FindEdgesFilter4()
 
     def run(self):
         """main loop"""
@@ -20,11 +20,10 @@ class Cameo(object):
         while self._window_manager.is_window_created:
             self._capture_manager.enter_frame()
             frame = self._capture_manager.frame
-
             # TUDO(yuwan) filter the frame (chapter 3)
             # @这是滤波器方法
-            filters.stroke_edges(frame, frame)
-            self._curve_filter.apply(frame, frame)
+            # filters.stroke_edges(frame, frame)
+            # self._curve_filter.apply(frame, frame)
 
             self._capture_manager.exit_frame()
             self._window_manager.process_events()
@@ -39,7 +38,7 @@ class Cameo(object):
         :return:
         """
         if key_code == 32:  # space
-            self._capture_manager.write_image("screen_shot.png")
+            self._capture_manager.write_image("filtered_images/screen_shot.png")
         elif key_code == 9:  # tab
             if not self._capture_manager.is_writing_video:
                 self._capture_manager.start_writing_video("screen_cast.avi")
